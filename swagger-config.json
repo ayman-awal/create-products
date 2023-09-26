@@ -1,0 +1,68 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "Products API",
+        "description": "API documentation for the Products project"
+    },
+    "host": "localhost:4000",
+    "basePath": "/api",
+    "schemes": [
+        "http"
+    ],
+    "paths":{
+        "/products/create":{
+            "post":{
+                "tags":["Product"],
+                "summary": "Create a new product",
+                "description": "Creates a new product with the provided details",
+                "parameters":[
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "schema":{
+                            "type": "object",
+                            "properties": {
+                                "name":{
+                                    "example": "any"
+                                },
+                                "image":{
+                                    "example":"any"
+                                },
+                                "image":{
+                                    "example":"any"
+                                },
+                                "description":{
+                                    "example":"any"
+                                },
+                                "price":{
+                                    "example":"any"
+                                },
+                                "category":{
+                                    "example":"any"
+                                },
+                                "brand":{
+                                    "example":"any"
+                                },
+                                "stockQuantity":{
+                                    "example":"any"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses" :{
+                    "200":{
+                        "description": "Product created successfully"
+                    },
+                    "400":{
+                        "description": "Please provide all requred fields"
+                    },
+                    "500":{
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        }
+    }
+}
