@@ -11,6 +11,22 @@
         "http"
     ],
     "paths":{
+        "/products":{
+            "get":{
+                "tags":["Product"],
+                "summary": "View all products",
+                "description": "Returns the list of products available",
+                "parameters":[],
+                "responses":{
+                    "200": {
+                        "description": "Successful response"
+                    },
+                    "404": {
+                        "description": "Bad Request"
+                    }
+                }
+            }
+        },
         "/products/create":{
             "post":{
                 "tags":["Product"],
@@ -58,8 +74,90 @@
                     "400":{
                         "description": "Please provide all requred fields"
                     },
-                    "500":{
-                        "description": "Internal Server Error"
+                    "404": {
+                        "description": "Bad Request"
+                    }
+                }
+            }
+        },
+        "/products/edit/{productid}":{
+            "patch":{
+                "tags":["Product"],
+                "summary": "Edits a product",
+                "description": "Edits an existing product with the provided details",
+                "parameters":[
+                    {
+                        "name": "productid",
+                        "in": "path",
+                        "required": "true",
+                        "type": "string",
+                        "description": "Id of the existing product to be deleted"
+                    },
+                
+                    {   
+                        "type": "object",
+                        "properties": {
+                            "name":{
+                                "example": "any"
+                            },
+                            "image":{
+                                "example":"any"
+                            },
+                            "image":{
+                                "example":"any"
+                            },
+                            "description":{
+                                "example":"any"
+                            },
+                            "price":{
+                                "example":"any"
+                            },
+                            "category":{
+                                "example":"any"
+                            },
+                            "brand":{
+                                "example":"any"
+                            },
+                            "stockQuantity":{
+                                "example":"any"
+                            }
+                        }
+                    
+                    }
+                ],
+                "responses" :{
+                    "200":{
+                        "description": "Product created successfully"
+                    },
+                    "400":{
+                        "description": "Please provide all requred fields"
+                    },
+                    "404": {
+                        "description": "Bad Request"
+                    }
+                }
+            }
+        },
+        "/products/delete/{productid}":{
+            "delete":{
+                "tags":["Product"],
+                "summary": "Deletes a product",
+                "description": "Deletes an existing product by its Id",
+                "parameters":[
+                    {
+                        "name": "productid",
+                        "in": "path",
+                        "required": "true",
+                        "type": "string",
+                        "description": "Id of the existing product to be deleted"
+                    }
+                ],
+                "responses":{
+                    "200": {
+                        "description": "Successful response"
+                    },
+                    "404": {
+                        "description": "Bad Request"
                     }
                 }
             }
