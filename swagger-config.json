@@ -80,64 +80,63 @@
                 }
             }
         },
-        "/products/edit/{productid}":{
-            "patch":{
-                "tags":["Product"],
-                "summary": "Edits a product",
-                "description": "Edits an existing product with the provided details",
-                "parameters":[
-                    {
-                        "name": "productid",
-                        "in": "path",
-                        "required": "true",
-                        "type": "string",
-                        "description": "Id of the existing product to be deleted"
-                    },
-                
-                    {   
-                        "type": "object",
-                        "properties": {
-                            "name":{
-                                "example": "any"
-                            },
-                            "image":{
-                                "example":"any"
-                            },
-                            "image":{
-                                "example":"any"
-                            },
-                            "description":{
-                                "example":"any"
-                            },
-                            "price":{
-                                "example":"any"
-                            },
-                            "category":{
-                                "example":"any"
-                            },
-                            "brand":{
-                                "example":"any"
-                            },
-                            "stockQuantity":{
-                                "example":"any"
-                            }
-                        }
-                    
+        "/products/edit/{productid}": {
+            "patch": {
+              "tags": ["Product"],
+              "summary": "Edit a product",
+              "description": "Edits an existing product with the provided details.",
+              "parameters": [
+                {
+                  "name": "productid",
+                  "in": "path",
+                  "required": true,
+                  "type": "string"
+                },
+                {
+                  "name": "body",
+                  "in": "body",
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "example": "any"
+                      },
+                      "image": {
+                        "example": "any"
+                      },
+                      "description": {
+                        "example": "any"
+                      },
+                      "price": {
+                        "example": "any"
+                      },
+                      "category": {
+                        "example": "any"
+                      },
+                      "brand": { 
+                        "example": "any"
+                      },
+                      "stockQuantity": {
+                        "example": "any"
+                      }
                     }
-                ],
-                "responses" :{
-                    "200":{
-                        "description": "Product created successfully"
-                    },
-                    "400":{
-                        "description": "Please provide all requred fields"
-                    },
-                    "404": {
-                        "description": "Bad Request"
-                    }
+                  }
                 }
+                
+              ],
+              "responses": {
+                "200": {
+                  "description": "Product updated successfully"
+                },
+                "404": {
+                  "description": "Product not found"
+                },
+                "500": {
+                  "description": "Internal Server Error"
+                }
+              }
             }
-        },
+          },
         "/products/delete/{productid}":{
             "delete":{
                 "tags":["Product"],
